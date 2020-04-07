@@ -1,0 +1,12 @@
+[?2004h[?1049h[?1h=[?2004h[1;24r[?12h[?12l[27m[29m[m[H[2J[?25l[24;1H"package-lock.json" 420L, 16171C[1;1H{
+  "name": "server",
+  "version": "1.0.0",
+  "lockfileVersion": 1,
+  "requires": true,
+  "dependencies": {
+    "accepts": {[8;7H"version": "1.3.7",[9;7H"resolved": "https://registry.npmjs.org/accepts/-/accepts-1.3.7.tgz",[10;7H"integrity": "sha512-Il80Qs2WjYlJIBNzNkK6KYqlVMTbZLXgHx2oT0pU/fjRHyEp+PEfEE[11;1HPY0R3WCwAGVOtauxh1hOxNgIf5bv7dQpA==",[12;7H"requires": {[13;9H"mime-types": "~2.1.24",[14;9H"negotiator": "0.6.2"[15;7H}
+    },
+    "array-flatten": {[18;7H"version": "1.1.1",[19;7H"resolved": "https://registry.npmjs.org/array-flatten/-/array-flatten-1.1..[20;1H1.tgz",[21;7H"integrity": "sha1-ml9pkFGx5wczKPKgCJaLZOopVdI="
+    },
+    "body-parser": {[1;1H[?25h[?25l[24;1H[K[24;1H:[?2004h[?25hq[?25l[?2004l[24;1H[K[24;1H[?2004l[?1l>[?25h[?1049lpackage-lock.json
+node_modules/
