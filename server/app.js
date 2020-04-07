@@ -4,13 +4,11 @@ const mongoose = require('mongoose');
 const schema = require('./schema/schema');
 require('dotenv').config();
 
-const password = process.env.MONGO_PASSWORD;
-
 const app = express();
-mongoose.connect(`mongodb+srv://dbUser:${password}@cluster0-igs2x.mongodb.net/test?retryWrites=true&w=majority`);
-mongoose.connection('open', () => {
-   console.log('connected to db');
-});
+
+const password = process.env.MONGO_PASSWORD;
+const url = `mongodb+srv://dbUser:${password}@cluster0-igs2x.mongodb.net/test?retryWrites=true&w=majority`;
+mongoose.connect(url,{ useNewUrlParser: true, useUnifiedTopology: true });
 
 app.use('/graphql', graphqlHTTP({
     schema,
