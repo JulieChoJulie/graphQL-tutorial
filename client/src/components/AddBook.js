@@ -1,23 +1,28 @@
 import React, { useState } from 'react';
 import { useQuery } from '@apollo/react-hooks';
+import { useMutation } from '@apollo/react-hooks';
 import { getAuthorsQuery } from "../queries/queries";
+import { addBookMutation } from "../queries/queries";
+import { getBookQuery } from "../queries/queries";
 
 const AddBook = () => {
     const [authorId, setAuthor] = useState('');
     const [genre, setGenre] = useState('');
     const [name, setName] = useState('');
 
-    const { loading, error, data } = useQuery(getAuthorsQuery);
+    const authorsData = useQuery(getAuthorsQuery);
+    const [addBook, { data }] = useMutation(addBookMutation);
+
     const displayAuthor = () => {
-        if(loading) {
+        if(authorsData.loading) {
             return (<option disabled>Loading..</option>)
-        } else if (error) {
+        } else if (authorsData.error) {
             return (<option disabled>Error</option>)
-        } else if (data) {
+        } else if (authorsData.data) {
             return (
                 <>
                     {
-                        data.authors.map((author) => (
+                        authorsData.data.authors.map((author) => (
                             <option
                                 key={author.id}
                                 value={author.id}
@@ -33,11 +38,17 @@ const AddBook = () => {
 
     const submitForm = e => {
         e.preventDefault();
-        console.log({
-            authorId,
-            genre,
-            name
-        })
+        addBook({
+            variables: {
+                genre,
+                name,
+                authorId,
+            },
+            refetchQueries: [{ query: getBookQuery  }]
+        });
+        setAuthor('');
+        setName('');
+        setGenre('');
     };
 
     return (
