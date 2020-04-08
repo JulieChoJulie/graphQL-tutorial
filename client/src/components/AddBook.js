@@ -72,7 +72,7 @@ const AddBook = () => {
             <div className="field">
                 <label>Author</label>
                 <select onChange={(e) => setAuthor(e.target.value)}>
-                    <option>Select Author</option>
+                    <option key="first-option">Select Author</option>
                     {displayAuthor()}
                 </select>
             </div>
