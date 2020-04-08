@@ -13,7 +13,7 @@ const BookList = () => {
             <ul id="book-list">
                 {
                     data.books.map(({ name, id }) => (
-                        <li>Name: {name}</li>
+                        <li key={id}>Name: {name}</li>
                     ))
                 }
             </ul>
