@@ -1,5 +1,6 @@
 import React from 'react';
 import BookList from './components/BookList';
+import AddBook from './components/AddBook';
 import ApolloClient from 'apollo-boost';
 import { ApolloProvider } from '@apollo/react-hooks';
 
@@ -13,6 +14,7 @@ function App() {
         <div className="main">
             <h1>Hello</h1>
             <BookList/>
+            <AddBook/>
         </div>
     </ApolloProvider>
   );

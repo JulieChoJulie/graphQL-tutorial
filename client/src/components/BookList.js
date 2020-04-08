@@ -1,12 +1,21 @@
 import React from 'react';
+import { useQuery } from '@apollo/react-hooks';
+import { getBookQuery } from "../queries/queries";
 
 const BookList = () => {
+    const { loading, error, data } = useQuery(getBookQuery);
+
+    if (loading) return <p>Loading...</p>;
+    if (error) return <p>Error :(</p>;
+
     return (
         <div>
             <ul id="book-list">
-                <li>Hello</li>
-                <li>Hello2</li>
-                <li>Hello3</li>
+                {
+                    data.books.map(({ name, id }) => (
+                        <li>Name: {name}</li>
+                    ))
+                }
             </ul>
         </div>
     );
